@@ -1,0 +1,11 @@
+Package: envutils
+Type: Package
+Title: Utility Functions for Data Analysis on Energy and Environment
+Version: 0.1.0
+Author: Xiaoxuan Yang
+Maintainer: Xiaoxuan Yang <xy77@duke.edu>
+Description: This package contains a set of utility functions such as web scrapping. For example, in my research on the relationship between climate warming and energy use, this package is utilized to scrape and manipulate energy and climate related data.
+Depends: R (>= 3.5.1)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
