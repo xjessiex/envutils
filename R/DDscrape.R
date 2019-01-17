@@ -10,7 +10,6 @@
 #' CDD.scrape(startdate = "1990-01-01", enddate = "2017-12-01")
 #' @export
 CDD.scrape<- function(startdate, enddate){
-
   # create a dataspan of the query dates
   datespan <- seq(from=as.Date(startdate),
                   to=as.Date(enddate), by='months')
@@ -100,10 +99,11 @@ CDD.scrape<- function(startdate, enddate){
   data_1[, "Date"] <- datespan
   data_1 <- data_1[, c(49, 1:48)]
 
+
   # make sure the elements are numeric
-  for (i in (2:ncol(data_1))){
-    data_1[,i] <- as.numeric(data_1[,i])
-  }
+  indx <- sapply(data_1, is.factor)
+  data_1[indx] <- lapply(data_1[indx], function(x) as.numeric(as.character(x)))
+
   return(data_1)
 }
 
@@ -210,9 +210,9 @@ HDD.scrape <- function(startdate, enddate){
   data_1 <- data_1[, c(49, 1:48)]
 
   # make sure the elements are numeric
-  for (i in (2:ncol(data_1))){
-    data_1[,i] <- as.numeric(data_1[,i])
-  }
+  indx <- sapply(data_1, is.factor)
+  data_1[indx] <- lapply(data_1[indx], function(x) as.numeric(as.character(x)))
+
   return(data_1)
 }
 
