@@ -98,7 +98,7 @@ CDD.scrape<- function(startdate, enddate){
   # create dates and rearrange date column
   data_1[, "Date"] <- datespan
   data_1 <- data_1[, c(49, 1:48)]
-
+  data_1 <- lapply(data_1, as.numeric)
   return(data_1)
 }
 
@@ -203,7 +203,7 @@ HDD.scrape <- function(startdate, enddate){
   # create dates and rearrange date column
   data_1[, "Date"] <- datespan
   data_1 <- data_1[, c(49, 1:48)]
-
+  data_1 <-lapply(data_1, as.numeric)
   return(data_1)
 }
 
