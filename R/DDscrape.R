@@ -33,7 +33,7 @@ CDD.scrape<- function(startdate, enddate){
     URL<-"ftp://ftp.cpc.ncep.noaa.gov/htdocs/degree_days/weighted/legacy_files/cooling/statesCONUS/"
     download_link<-paste0(URL, year, "/", monstr, ".txt")
     print(download_link)
-    temp<-read.table(download_link, skip = c(15),fill = TRUE)
+    temp<-read.table(download_link, skip = c(15),fill = TRUE, stringsAsFactors = FALSE)
 
 
     temp<-read.table(download_link, skip = c(15),fill = TRUE)
@@ -76,6 +76,7 @@ CDD.scrape<- function(startdate, enddate){
 
     x <- as.data.frame(t(temp.sort[1:48,2]))
     colnames(x)<-temp.sort[,1]
+
     return(x)
   }
 
@@ -98,7 +99,11 @@ CDD.scrape<- function(startdate, enddate){
   # create dates and rearrange date column
   data_1[, "Date"] <- datespan
   data_1 <- data_1[, c(49, 1:48)]
-  data_1 <- lapply(data_1, as.numeric)
+
+  # make sure the elements are numeric
+  for (i in (2:ncol(data_1))){
+    data_1[,i] <- as.numeric(data_1[,i])
+  }
   return(data_1)
 }
 
@@ -203,7 +208,11 @@ HDD.scrape <- function(startdate, enddate){
   # create dates and rearrange date column
   data_1[, "Date"] <- datespan
   data_1 <- data_1[, c(49, 1:48)]
-  data_1 <-lapply(data_1, as.numeric)
+
+  # make sure the elements are numeric
+  for (i in (2:ncol(data_1))){
+    data_1[,i] <- as.numeric(data_1[,i])
+  }
   return(data_1)
 }
 
