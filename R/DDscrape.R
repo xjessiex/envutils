@@ -1,10 +1,13 @@
-#' Scrape Monthly Degree Days State Data from NOAA
+#' Scrape Monthly Cooling Degree Days State Data from NOAA
 #'
-#' This package contains two functions which scrape monthly Cooling Degree Days or Heating Degree Days (both population-weighted) from NOAA website at a state level. Please note that Alaska and Hawaii are not included. The output is a dataframe containing scrapped data with "Date" as the first column, followed by the monthly data of 48 states.
+#' This function scrapes monthly Cooling Degree Days (population-weighted) from NOAA website at a state level. Please note that Alaska and Hawaii are not included. The output is a dataframe containing scrapped data with "Date" as the first column, followed by the monthly data of 48 states.
 #'
-#' @param start date and end date in the format of "YYYY-MM-DD"
+#' @param startdate a character string to indicate the starting date, in the format of "YYYY-MM-DD"
+#' @param enddate a character string to indicate the ending date, in the format of "YYYY-MM-DD"
 #' @return NULL
-#' @examples CDD.scrape(startdate = "1990-01-01", enddate = "2017-12-01") or HDD.scrape(startdate = "1990-01-01", enddate = "2017-12-01")
+#' @examples
+#' # scrape cooling degree days from 1990 to 2017
+#' CDD.scrape(startdate = "1990-01-01", enddate = "2017-12-01")
 #' @export
 CDD.scrape<- function(startdate, enddate){
 
@@ -100,6 +103,17 @@ CDD.scrape<- function(startdate, enddate){
 }
 
 
+
+#' Scrape Monthly Heating Degree Days State Data from NOAA
+#'
+#' This function scrapes monthly Hooling Degree Days (population-weighted) from NOAA website at a state level. Please note that Alaska and Hawaii are not included. The output is a dataframe containing scrapped data with "Date" as the first column, followed by the monthly data of 48 states.
+#'
+#' @param startdate a character string to indicate the starting date, in the format of "YYYY-MM-DD"
+#' @param enddate a character string to indicate the ending date, in the format of "YYYY-MM-DD"
+#' @return NULL
+#' @examples
+#' # scrape heating degree days from 1990 to 2017
+#' HDD.scrape(startdate = "1990-01-01", enddate = "2017-12-01")
 #' @export
 HDD.scrape <- function(startdate, enddate){
 
