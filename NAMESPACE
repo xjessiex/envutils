@@ -1,2 +1,3 @@
 export(CDD.scrape)
 export(HDD.scrape)
+export(NGres.scrape)

@@ -9,6 +9,10 @@ devtools::install_github("xjessiex/envutils")
 
 # Latest Update
 
+
+**Jan 18th, 2019:**
+* Added another simple scrapping function to get NG residential consumption data (monthly and by state) from EIA
+
 **Jan 17th, 2019:**
 * Wrote my first R package to include the scrapping functions for Heating Degree Days and Cooling Degree Days
 * Uploaded to GitHub
