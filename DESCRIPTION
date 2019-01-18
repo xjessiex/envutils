@@ -12,5 +12,5 @@ LazyData: true
 Imports:
   lubridate,
   tidyverse,
-  readxl 
+  readxl
 RoxygenNote: 6.1.0.9000

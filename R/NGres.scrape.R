@@ -23,10 +23,7 @@ NGres.scrape<- function(startdate, enddate){
                      sheet="Data 1")
   NG_Res$Date <- format(as.Date(NG_Res$Date), "%Y-%m") # format year-month
 
-  seq <- seq(as.Date(startdate), as.Date(enddate), by = "month")
-  seq <- format(as.Date(seq), "%Y-%m")
-
   # filter the selected periods
-  result <- subset(NG_Res, Date>= "1990-01" & Date <= "1990-05")
+  result <- subset(NG_Res, Date>= startdate & Date <= enddate)
   return(result)
 }
